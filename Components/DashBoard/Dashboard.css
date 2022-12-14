@@ -1,0 +1,167 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+
+.main{
+    width:100vw;
+    height:18vh;
+}
+.header{
+    border:1px solid rgb(185, 185, 185);
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0px;
+    padding:0.4rem;
+    height:10vh;
+}
+.icon{
+    width:10vw;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items: center;
+    color:grey;
+}
+.part-three{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.part-two{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:50vw;
+    height:90%;
+    /* border:1px solid red; */
+    border-radius:8px;
+    box-shadow: 1px 1px 1px 1px rgb(233, 232, 232);
+    background-color: rgb(243, 242, 242);
+}
+.part-two>input{
+    width:80%;
+    height:80%;
+    border:none;
+    background-color: rgb(243, 242, 242);
+}
+
+.keep{
+    font-size:large;
+    font-family: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
+}
+
+.part-takeNoteOne{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height:8vh;
+    width:50vw;
+    /* border:1px solid red; */
+    border-radius:8px;
+    box-shadow: 1px 1px 1px 1px rgb(192, 192, 192);
+    /* background-color: rgb(243, 242, 242); */
+    border: 2px solid rgb(244, 243, 243);
+}
+.TakeNotePopUp{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.TakeANote:hover{
+    border:white;
+}
+
+.TakeANote{
+    border:none;
+    height:100%;
+    border-color: floralwhite;
+}
+
+.part-takeNotetwo{
+    display:flex;
+    flex-direction: column;
+    height:20vh;
+    width:50vw;
+    border-radius:8px;
+    box-shadow: 1px 1px 1px 1px rgb(192, 192, 192);
+    border: 2px solid rgb(244, 243, 243);
+    padding:0.6rem;
+}
+
+ .sidenav{
+    display:flex;
+    height:90vh;
+    width:20vw;
+ }
+
+ .navOne{
+    display:flex;
+    flex-direction: column;
+    box-shadow: 5rem rgb(20, 16, 16);
+    font-family: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
+    font-size:xx-small;
+ }
+
+ .navTwo p {
+    transition: 0.3s;
+    padding: 14.5px;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(18, 18, 18);
+    border-radius: 0 30px 30px 0;
+    color:white;
+  }
+
+  .navTwo:hover{
+    color:black;
+  }
+
+  .navTwo p:hover{
+    color:black;
+     background-color:rgb(253, 212, 169);
+  }
+  .navOne a{
+    transition: 0.3s;
+    padding: 15px;
+  }
+.titleOfTakeNoteTwo>input{
+border:none;
+}
+  .sidenavdiv{
+    background-color:rgb(253, 212, 169);
+  }
+
+  .takeNotUp{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+  }
+
+  .last{
+    height:50px;
+  }
+  .allIcons{
+    display:flex;
+    flex-direction: row;
+    width:15rem;
+    justify-content: space-between;
+  }
+  
+  .lastDiv{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+.takeNoteTwoCloseButton{
+    background-color: white;
+    border:none;
+}
