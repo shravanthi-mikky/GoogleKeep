@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "angular-route": "^1.8.2",
+    "ngstorage": "^0.3.11"
+  }
+}
