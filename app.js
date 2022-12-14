@@ -5,28 +5,36 @@ var app=angular.module("FundooApp",['ngRoute','ngStorage']);
 
 $routeProvider.
 when("/Login",{
-    templateUrl:"Components/Login/Login.html"
+    templateUrl:"Components/Login/Login.html",
+    controller:"loginCtrl"
 }).
 when("/Register",{
-    templateUrl:"Components/Register/Register.html"
+    templateUrl:"Components/Register/Register.html",
+    controller:"registerCtrl"
 }).
 when("/Dashboard",{
-    templateUrl:"Components/DashBoard/Dashboard.html"
+    templateUrl:"Components/DashBoard/Dashboard.html",
+    controller:"DashboardCtrl"
 }).
 otherwise({
 redirectTo:"/Login"
 });
 }]); 
-app.controller("fundooappCtrl",function($scope,$http,$window,$location,$localStorage){
+/* app.controller("fundooappCtrl",function($scope,$http,$window,$location,$localStorage){
       //-----Takenote one and two
       var note=this;
       note.toggle=false;
       $scope.showButtons = [0];
       $scope.toggle1 = function() {
         $scope.showButtons = [1];
-    };
 
-    $scope.postNote=function(title,note){
+    }; */
+
+
+
+
+
+    /* $scope.postNote=function(title,note){
 
         var token=$window.localStorage.getItem("token");
         console.log(token);
@@ -55,9 +63,9 @@ app.controller("fundooappCtrl",function($scope,$http,$window,$location,$localSto
         },function(error){
             console.log(error)
         })
-    }; 
+    }; */ 
    //Login js-------------------------------------------------
-    $scope.login=function(email, password){
+   /*  $scope.login=function(email, password){
         var data={
             email:email,
             password:password
@@ -69,8 +77,8 @@ app.controller("fundooappCtrl",function($scope,$http,$window,$location,$localSto
 
             if(response.data){
                 $window.localStorage.setItem('token', response.data.token);
-                /* $localStorage.message=response.data.token; */
-                console.log($localStorage.message);
+                // $localStorage.message=response.data.token; 
+                // console.log($localStorage.message); 
                 $location.path('/Dashboard');
                 $scope.email=response.data.email;
                 $scope.password=response.data.password;
@@ -78,10 +86,22 @@ app.controller("fundooappCtrl",function($scope,$http,$window,$location,$localSto
         },function(error){
             console.log(error)
         })
-    }; 
+    };  */
 
+    /* var token=$window.localStorage.getItem("token");
+    console.log(token);
+    
+   let headersConfig = {
+    headers:{
+        Authorization:"Bearer "+localStorage.getItem("token")
+    } 
+}
+    $http.get("https://localhost:44340/api/Note/AllNotes",headersConfig)
+    .then((response)=>{console.log(response);$window.localStorage.setItem('Notes', response.data);},(error)=>{ console.log(error)
+    })
+ */
     /* register.js */
-     $scope.postdata=function(firstName,lastName,email, password){
+    /*  $scope.postdata=function(firstName,lastName,email, password){
         var data={
             firstName:firstName,
             lastName:lastName,
@@ -102,6 +122,9 @@ app.controller("fundooappCtrl",function($scope,$http,$window,$location,$localSto
         },function(error){
             console.log(error)
         })
-    }; 
-})
+    };  */
+
+    
+
+/* }) */
         
