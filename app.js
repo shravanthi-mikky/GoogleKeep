@@ -48,7 +48,7 @@ app.controller("fundooappCtrl",function($scope,$http,$window,$location,$localSto
     
             if(response.data){
                 $scope.msg="Post Data Submitted";
-              
+                $window.alert("Notes Created!");
                 $scope.title=response.data.title;
                 $scope.note=response.data.note;
             }
