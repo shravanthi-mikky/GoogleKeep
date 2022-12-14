@@ -1,6 +1,6 @@
-var app= angular.module("FundooApp",['ngStorage']);
 
-app.controller("fundooappCtrl",function($scope,$http,$localStorage,$location){
+
+app.controller("loginCtrl",function($scope,$http,$location,$window){
     $scope.email=null;
     $scope.password=null;
 
@@ -15,9 +15,9 @@ app.controller("fundooappCtrl",function($scope,$http,$localStorage,$location){
             console.log(response);
 
             if(response.data){
-
-                $localStorage.message = response.data.token;
-                console.log($localStorage.message);
+                $window.localStorage.setItem('token', response.data.token);
+                /* $localStorage.message = response.data.token;
+                console.log($localStorage.message); */
                 $location.path('/Dashboard');
                 $scope.email=response.data.email;
                 $scope.password=response.data.password;

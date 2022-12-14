@@ -1,6 +1,6 @@
-var app= angular.module("FundooApp",[]);
 
-app.controller("fundooappCtrl",function($scope,$http){
+
+app.controller("registerCtrl",function($scope,$http){
     $scope.firstName=null;
     $scope.lastName=null;
     $scope.email=null;
