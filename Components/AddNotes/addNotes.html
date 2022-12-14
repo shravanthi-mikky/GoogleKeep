@@ -1,10 +1,10 @@
-<div ng-controller="DashboardCtrl"  ng-init="getAllTheNotes()">
-    <div class="part-takeNotetwo BookClass" ng-repeat="item in AllNotesArray" >
+<div class='BookClass' ng-controller="DashboardCtrl"  ng-init="getAllTheNotes()">
+    <div class="part-takeNotetwo2" ng-repeat="item in AllNotesArray" >
         <div class="note takeNotUp">
             <h5>{{item.title}}</h5>
             <img src='../../Images/IsPinIcon.png' width='20' />
         </div>
-        <div>
+        <div class="NotesField">
             {{item.note}}
         </div>
         <div class="lastDiv">

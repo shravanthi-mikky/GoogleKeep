@@ -165,3 +165,12 @@ border:none;
     background-color: white;
     border:none;
 }
+
+.NotesList{
+  /* display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 2px solid red;
+padding:1rem; */
+  margin:2rem 6rem 6rem 9rem;
+}
