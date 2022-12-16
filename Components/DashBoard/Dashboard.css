@@ -2,8 +2,6 @@
     margin:0px;
     padding:0px;
 }
-
-
 .main{
     width:100vw;
     height:18vh;
@@ -17,6 +15,15 @@
     margin-top: 0px;
     padding:0.4rem;
     height:10vh;
+}
+.SideNavPart{
+  display:flex;
+    flex-direction:row;
+}
+
+.SideNavAndNotes{
+  display:flex;
+    flex-direction:column;
 }
 .icon{
     width:10vw;
@@ -73,6 +80,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top:1rem;
 }
 
 .TakeANote:hover{
@@ -98,7 +106,7 @@
 
  .sidenav{
     display:flex;
-    height:90vh;
+    height:auto;
     width:20vw;
  }
 
@@ -164,4 +172,28 @@ border:none;
 .takeNoteTwoCloseButton{
     background-color: white;
     border:none;
+}
+
+.NotesList{
+  margin:2rem 6rem 6rem 9rem;
+}
+
+
+.ColorBox{
+  border:2px solid red;
+  height:3rem;
+  width:25rem;
+}
+.colorCircle{
+  width:10px;
+  height:10px;
+  background-Color:color;
+  margin:5px;
+  border-Radius:5px;
+  
+  border:2px solid red;
+}
+
+#TrashNotes{
+  margin-left:10rem;
 }

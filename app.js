@@ -1,7 +1,6 @@
 var app=angular.module("FundooApp",['ngRoute','ngStorage']);
 
  app.config(["$routeProvider",function($routeProvider){
-   
 
 $routeProvider.
 when("/Login",{
@@ -14,6 +13,18 @@ when("/Register",{
 }).
 when("/Dashboard",{
     templateUrl:"Components/DashBoard/Dashboard.html",
+    controller:"DashboardCtrl"
+}).
+when("/Notes",{
+    templateUrl:"Components/DashBoard/Dashboard.html",
+    controller:"DashboardCtrl"
+}).
+when("/Trash",{
+    templateUrl:"Components/Trash/TrashNotes.html",
+    controller:"DashboardCtrl"
+}).
+when("/Archive",{
+    templateUrl:"Components/Archive/Archive.html",
     controller:"DashboardCtrl"
 }).
 otherwise({
