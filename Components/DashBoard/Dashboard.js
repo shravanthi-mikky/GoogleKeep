@@ -1,8 +1,28 @@
+//var app=angular.module("FundooApp",[]);
+
+app.component('archiveList',{
+    templateUrl:"Components/Archive/Archive.html",
+});
+
+app.component('pinnedList',{
+    templateUrl:"Components/PinnedNotes/PinnedNotes.html",
+});
+
+app.component('trashList',{
+    templateUrl:"Components/Trash/TrashNotes.html",
+});
+
+app.component('sideList',{
+    templateUrl:"Components/DashBoard/SideNavbar/sideNav.html",
+});
+
+
 
 app.component('noteList',{
     templateUrl:"Components/AddNotes/addNotes.html",
-}).controller("DashboardCtrl",function($scope,$http,$window){
     
+}).controller("DashboardCtrl",function($scope,$http,$window){
+    var colorArray = ["red", "blue","Black","green","voilet","Yellow","Pink"];
     var token=$window.localStorage.getItem("token");
     let headersConfig = {
         headers:{
@@ -56,6 +76,5 @@ var data={
         console.log(error)
     })
 }; 
-    /* console.log(token); */
 
 })

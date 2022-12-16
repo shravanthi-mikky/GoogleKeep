@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="FundooApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- <script src="DashBoard.js"></script> -->
+    <!-- <script src="../../app.js"></script> -->
+
+
+    <!--   <link rel="stylesheet" href="../DashBoard/Dashboard.css"> -->
+
+</head>
+
+<body>
+    <div class='main' ng-controller="DashboardCtrl as notes">
+        <div class='header'>
+            <div class='icon part-one'>
+                <img src='../../Images/ThreeLines.png' width='20' height='18' />
+                <img src='../../Images/KeepIcon.png' width='35' />
+                <div class='keep'> Keep</div>
+            </div>
+            <div class='icon1 part-two'>
+                <input placeholder="Search" class='searchBar'></input>
+            </div>
+            <div class='icon part-three'>
+                <img src='../../Images/viewRefresh.png' width='23' height='23' />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-view-stacked" viewBox="0 0 16 16">
+                    <path
+                        d="M3 0h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3zm0 8h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3z" />
+                </svg>
+                <img src='../../Images/settings.png' width='25' />
+            </div>
+            <div class='icon part-four'>
+                <img src='../../Images/appsIcon.png' width='23' height='23' />
+                <img src='../../Images/Accounts.png' width='30' />
+            </div>
+        </div>
+
+        <div id="mySidenav" class="sidenav">
+            <div class="navOne">
+                <a href="#!Notes" class="sidenavdiv" id="Notes">
+                    <img src='../../Images/NotesIcon.png.crdownload' width='15' />
+                </a>
+                <a href="#" class="sidenavdiv" id="Remainder">
+                    <img src='../../Images/RemainderIcon.png' width='15' />
+                </a>
+                <a href="#" class="sidenavdiv" id="Label">
+                    <img src='../../Images/EditLabelsIcon.png' width='15' />
+                </a>
+                <a href="#!Archive" class="sidenavdiv" id="Archive">
+                    <img src='../../Images/ArchiveIcon.png' width='20' />
+                </a>
+                <a href="#!Trash" class="sidenavdiv" id="Trash">
+                    <img src='../../Images/TrashIcon.png' width='20' />
+                </a>
+            </div>
+            <div class="navTwo">
+                <p href="#!Notes">Notes</p>
+                <p>Remainder</p>
+                <p>Label</p>
+                <p href="#!Archive">Archive</p>
+                <p href="#!Trash">Trash</p>
+            </div>
+        </div>
+    </div>
+    <div ng-controller="DashboardCtrl as notes">
+        <div class="TakeNotePopUp">
+            <div class="note part-takeNoteOne" ng-show="showButtons.includes(0)" ng-click="toggle1()">
+                <input class='TakeANote' type="text" placeholder="Take a note..." size="50"></input>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-check-square" viewBox="0 0 16 16">
+                    <path
+                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                    <path
+                        d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image"
+                    viewBox="0 0 16 16">
+                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                    <path
+                        d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                </svg>
+            </div>
+            <div class="part-takeNotetwo" ng-show="showButtons.includes(1)">
+                <div class="note takeNotUp">
+                    <input class='TakeANote' placeholder="Title" size="70" ng-model="title"></input>
+                    <img src='../../Images/IsPinIcon.png' width='20' />
+                </div>
+                <div>
+                    <input class='TakeANote last' placeholder="Take a note..." ng-model="note"></input>
+                </div>
+                <div class="lastDiv">
+                    <div class="allIcons">
+                        <img src='../../Images/RemainderIcon.png' width='14' height='20' />
+                        <img src='../../Images/PersonPlusIcon.png' width='18' height='18' />
+                        <img src='../../Images/PaintIcon.png' width='20' />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-image" viewBox="0 0 16 16">
+                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            <path
+                                d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                        </svg>
+                        <img src='../../Images/ArchiveIcon.png' width='25' />
+                    </div>
+                    <div class="takeNoteTwoCloseButton" ng-click="postNote(title,note)">Close</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="BookClass TrashNotesClass" id="TrashNotes" ng-controller="DashboardCtrl" ng-init="getAllTheNotes()">
+        <div class="part-takeNotetwo2" ng-repeat="item in AllNotesArray" ng-if="item.isTrash==true">
+            <div class="note takeNotUp">
+                <h5>{{item.title}}</h5>
+                <img src='../../Images/IsPinIcon.png' width='20' ng-click="ToPin(item.isPin)" />
+            </div>
+            <div class="NotesField">
+                {{item.note}}
+            </div>
+            <div class="lastDiv">
+                <div class="allIcons">
+                    <!-- <img src='../../Images/RemainderIcon.png' width='14' height='20' />
+                    <img src='../../Images/PersonPlusIcon.png' width='18' height='18' />
+                    <img src='../../Images/PaintIcon.png' width='20' />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-image" viewBox="0 0 16 16">
+                        <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                        <path
+                            d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                    </svg> -->
+                    <img src='../../Images/ArchiveIcon.png' width='25' ng-click="ToArchive(item.isArchive)" />
+                    <img src='../../Images/Delete.png' width='20' height='20' />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

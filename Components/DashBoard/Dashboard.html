@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" ng-app="FundooApp">
 
 <head>
@@ -7,69 +7,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DashBoard</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+ </head>
 
-  <!-- <script src="DashBoard.js"></script> -->
-  <!-- <script src="../../app.js"></script> -->
-
-
-<!--   <link rel="stylesheet" href="../DashBoard/Dashboard.css"> -->
-
-</head>
-
-<body>
-  <div class='main' ng-controller="DashboardCtrl as notes">
-    <div class='header'>
-      <div class='icon part-one'>
-        <img src='../../Images/ThreeLines.png' width='20' height='18' />
-        <img src='../../Images/KeepIcon.png' width='35' />
-        <div class='keep'> Keep</div>
-      </div>
-      <div class='icon1 part-two'>
-        <input placeholder="Search" class='searchBar'></input>
-      </div>
-      <div class='icon part-three'>
-        <img src='../../Images/viewRefresh.png' width='23' height='23' />
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-view-stacked"
-          viewBox="0 0 16 16">
-          <path
-            d="M3 0h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3zm0 8h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3z" />
-        </svg>
-        <img src='../../Images/settings.png' width='25' />
-      </div>
-      <div class='icon part-four'>
-        <img src='../../Images/appsIcon.png' width='23' height='23' />
-        <img src='../../Images/Accounts.png' width='30' />
-      </div>
+<body> -->
+<div class='main' ng-controller="DashboardCtrl as notes">
+  <div class='header'>
+    <div class='icon part-one'>
+      <img src='../../Images/ThreeLines.png' width='20' height='18' />
+      <img src='../../Images/KeepIcon.png' width='35' />
+      <div class='keep'> Keep</div>
     </div>
-
-    <div id="mySidenav" class="sidenav">
-      <div class="navOne">
-        <a href="#" class="sidenavdiv" id="Notes">
-          <img src='../../Images/NotesIcon.png.crdownload' width='15' />
-        </a>
-        <a href="#" class="sidenavdiv" id="Remainder">
-          <img src='../../Images/RemainderIcon.png' width='15' />
-        </a>
-        <a href="#" class="sidenavdiv" id="Label">
-          <img src='../../Images/EditLabelsIcon.png' width='15' />
-        </a>
-        <a href="#" class="sidenavdiv" id="Archive">
-          <img src='../../Images/ArchiveIcon.png' width='20' />
-        </a>
-        <a href="#" class="sidenavdiv" id="Trash">
-          <img src='../../Images/TrashIcon.png' width='20' />
-        </a>
-      </div>
-      <div class="navTwo">
-        <p>Notes</p>
-        <p>Remainder</p>
-        <p>Label</p>
-        <p>Archive</p>
-        <p>Trash</p>
-      </div>
+    <div class='icon1 part-two'>
+      <input placeholder="Search" class='searchBar'></input>
+    </div>
+    <div class='icon part-three'>
+      <img src='../../Images/viewRefresh.png' width='23' height='23' />
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-view-stacked"
+        viewBox="0 0 16 16">
+        <path
+          d="M3 0h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3zm0 8h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3z" />
+      </svg>
+      <img src='../../Images/settings.png' width='25' />
+    </div>
+    <div class='icon part-four'>
+      <img src='../../Images/appsIcon.png' width='23' height='23' />
+      <img src='../../Images/Accounts.png' width='30' />
     </div>
   </div>
-  <div ng-controller="DashboardCtrl as notes">
+  <div class="SideNavAndNotes">
+    <side-list></side-list>
+  <div class="NotesList">
+    <note-list></note-list>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+  <!-- <div id="mySidenav" class="sidenav">
+    <div class="navOne">
+      <a href="#" class="sidenavdiv" id="Notes">
+        <img src='../../Images/NotesIcon.png.crdownload' width='15' />
+      </a>
+      <a href="#" class="sidenavdiv" id="Remainder">
+        <img src='../../Images/RemainderIcon.png' width='15' />
+      </a>
+      <a href="#" class="sidenavdiv" id="Label">
+        <img src='../../Images/EditLabelsIcon.png' width='15' />
+      </a>
+      <a href="#" class="sidenavdiv" id="Archive">
+        <img src='../../Images/ArchiveIcon.png' width='20' />
+      </a>
+      <a href="#" class="sidenavdiv" id="Trash">
+        <img src='../../Images/TrashIcon.png' width='20' />
+      </a>
+    </div>
+    <div class="navTwo">
+      <p>Notes</p>
+      <p>Remainder</p>
+      <p>Label</p>
+      <p>Archive</p>
+      <p>Trash</p>
+    </div>
+  </div> -->
+  <!-- <div ng-controller="DashboardCtrl as notes">
     <div class="TakeNotePopUp">
       <div class="note part-takeNoteOne" ng-show="showButtons.includes(0)" ng-click="toggle1()">
         <input class='TakeANote' type="text" placeholder="Take a note..." size="50"></input>
@@ -117,12 +120,13 @@
         </div>
       </div>
     </div>
+ -->
+
+  <!-- <div class="ColorBox">
+  <div class="colorCirlce" ng-repeat="color in colorArray" >
+
   </div>
-  
-<div class="NotesList">
-  <note-list></note-list>
+</div> -->
+  <!-- </body>
 
-</div>
-</body>
-
-</html>
+</html> -->
