@@ -174,9 +174,9 @@ border:none;
     border:none;
 }
 
-.NotesList{
+/* .NotesList{
   margin:2rem 6rem 6rem 9rem;
-}
+} */
 
 
 .ColorBox{
@@ -196,4 +196,9 @@ border:none;
 
 #TrashNotes{
   margin-left:10rem;
+}
+
+.TakeNoteAndNote3{
+  display:flex;
+  flex-direction: column;
 }
