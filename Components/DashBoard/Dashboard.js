@@ -20,8 +20,8 @@ app.component('sideList',{
 
 app.component('noteList',{
     templateUrl:"Components/AddNotes/addNotes.html",
-    
-}).controller("DashboardCtrl",function($scope,$http,$window){
+
+}).controller("DashboardCtrl",function($scope,$http,$window,$uibModal){
     var colorArray = ["red", "blue","Black","green","voilet","Yellow","Pink"];
     var token=$window.localStorage.getItem("token");
     let headersConfig = {
@@ -46,11 +46,119 @@ app.component('noteList',{
       $scope.showButtons = [1];
   };
 
-  $scope.postNote=function(title,note){
+//For Archive
+$scope.ToArchive=function(noteID){
+    var datanote={
+        noteID: noteID
+      }
+      $scope.noteID=noteID;
+      console.log( $scope.noteID);
+    $http.put(`https://localhost:44340/api/Note/${noteID}/IsArchive`,null,headersConfig)
+    .then(function(response){
+        console.log(response);
+       window.location.reload();  
+    },function(error){
+        console.log(error)
+    })
+  };
+      
+  $scope.openModal = function(noteID,title,note,color,image,isArchive,isPin,isTrash){
+    user={
+      noteID:noteID,
+        title:title,
+        note:note,
+        color:color,
+        image:image,
+        isArchive:isArchive,
+        isPin:isPin,
+        isTrash:isTrash,
+    }
+    $scope.modalInstance = $uibModal.open({
+    ariaLabelledBy: 'modal-title',
+    ariaDescribedBy: 'modal-body',
+    templateUrl: 'window.html',
+    controller :'ModelHandlerController',
+    controllerAs: '$ctrl',
+    size: 'sm',
+    resolve: {
+    user:function(){
+      return user;
+    }
+    }
+    });
+   
+    }
+    
+  
+    //Update note
+    $scope.UpdateNote=function(noteID,title,note,color,isArchive,isPin,isTrash){
+       
+      var data1={
+        noteID:noteID,
+        title:title,
+        note:note,
+        color:color,
+        isArchive:isArchive,
+        isPin:isPin,
+        isTrash:isTrash
+      }
+      //call the service
+      
+      $http.put(`https://localhost:44340/api/Note/${noteID}/Update`,JSON.stringify(data1),headersConfig)
+      .then(function(response){
+          console.log(response);
+          if(response.data1){
+            window.location.reload();
+              $scope.title=response.data1.title;
+              $scope.note=response.data1.note;
+              $scope.color=response.data1.color;
+              $scope.image= response.data1.image;
+              $scope.isArchive= response.data1.isArchive;
+              $scope.isPin= response.data1.isPin;
+              $scope.isTrash= response.data1.isTrash;
+  
+              $uibModalInstance.close('save');
+          }
+      },function(error){
+          console.log(error)
+      })
+  };
+//For Delete
+$scope.deleteNote=function(noteID){
+    var datanote={
+        noteID: noteID
+      }
+      $scope.noteID=noteID;
+      console.log( $scope.noteID);
+    $http.delete(`https://localhost:44340/api/Note/${noteID}/Remove`,headersConfig)
+    .then(function(response){
+        console.log(response); 
+       window.location.reload(); 
+    },function(error){
+        console.log(error)
+    })
+  };
 
+      
+//For Trash
+$scope.ToTrash=function(noteID){
+    var datanote={
+        noteID: noteID
+      }
+      $scope.noteID=noteID;
+      console.log( $scope.noteID);
+    $http.put(`https://localhost:44340/api/Note/${noteID}/IsTrash`,null,headersConfig)
+    .then(function(response){
+        console.log(response); 
+       window.location.reload();
+    },function(error){
+        console.log(error)
+    })
+  };
+
+  $scope.postNote=function(title,note){
     var token=$window.localStorage.getItem("token");
     console.log(token);
-    
    let headersConfig = {
     headers:{
         Authorization:"Bearer "+localStorage.getItem("token")
@@ -71,6 +179,7 @@ var data={
             $window.alert("Notes Created!");
             $scope.title=response.data.title;
             $scope.note=response.data.note;
+            window.location.reload();
         }
     },function(error){
         console.log(error)
@@ -78,3 +187,23 @@ var data={
 }; 
 
 })
+
+// update ctrl
+
+app.controller("ModelHandlerController",function($scope,$uibModalInstance){
+  $scope.noteID=user.noteID;
+    $scope.title=user.title;
+    $scope.note=user.note;
+    $scope.color=user.color;
+    $scope.isArchive=user.isArchive;
+    $scope.isPin=user.isPin;
+     $scope.cancelModal = function(){
+     console.log("cancelmodal");
+     $uibModalInstance.dismiss('close');
+     }
+     $scope.ok = function(){
+     $uibModalInstance.close('save');
+     
+     }
+     
+    });
