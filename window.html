@@ -1,0 +1,66 @@
+<!-- <div class="modal-body" id="modal-body">
+    <div class="notesbody">
+        <div class="note">
+            <input type="hidden" placeholder="noteID" ng-model="noteID"/>
+            <input type="hidden" placeholder="color" ng-model="color"/>
+            <input type="hidden" placeholder="isArchive" ng-model="isArchive"/>
+            <input type="hidden" placeholder="isPin" ng-model="isPin"/>
+            <input type="text" placeholder="title" ng-model="title"/>
+        </div>
+        <div class="take">
+            <img src="../../Images/pin.png" height="20px" />
+        </div>
+    </div>
+    <div class="notesbody">
+        <div class="note">
+            <input type="text" ng-model="note" placeholder="Take a note..." >
+        </div>
+    </div>
+    <div class="notesfooter">
+        <div class="notesicons">
+           
+            <img src="../../Images/img.jpg"/>
+            <img src="../../Images/archive.png" />
+            <img src="../../Images/more.png"/>
+        </div>
+        <div class="close" ng-controller="DashboardCtrl" ng-click="UpdateNote(noteID,title,note,color,isArchive,isPin)">
+            close
+        </div>
+    </div>
+</div> -->
+<div class="modal-body" id="modal-body">
+    <div class="note takeNotUp"
+        ng-click="openModal(item.noteID,item.title,item.note,item.color,item.isArchive,item.isPin,item.isTrash)">
+        <h5><input type="text" placeholder="title" ng-model="title" /></h5>
+        <img src='../../Images/IsPinIcon.png' width='13' height='13' ng-click="ToPin(item.noteID)" />
+    </div>
+    <div class="NotesField">
+        <input type="text" ng-model="note" placeholder="Take a note...">
+    </div>
+    <div class="lastDiv">
+        <div class="allIcons">
+            <!-- <img src='../../Images/RemainderIcon.png' width='17' height='17' /> -->
+            <img src='../../Images/PersonPlusIcon.png' width='18' height='18' />
+            <img src='../../Images/PaintIcon.png' width='20' />
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-image"
+                viewBox="0 0 16 16">
+                <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                <path
+                    d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+            </svg>
+            <img src='../../Images/ArchiveIcon.png' width='25' />
+            <img src='../../Images/Delete.png' width='20' height='20'  />
+            <!-- <input type="hidden" placeholder="noteID" ng-model="noteID"/>
+            <input type="hidden" placeholder="color" ng-model="color"/>
+            <input type="hidden" placeholder="isArchive" ng-model="isArchive"/>
+            <input type="hidden" placeholder="image" ng-model="image"/>
+            <input type="hidden" placeholder="isPin" ng-model="isPin"/>
+            <input type="hidden" placeholder="isTrash" ng-model="isTrash"/> -->
+        </div>
+        <div class="close" ng-controller="DashboardCtrl"
+        ng-click="UpdateNote(noteID,title,note,color,isArchive,isPin,isTrash)">
+        close
+    </div>
+    </div>
+    
+</div>

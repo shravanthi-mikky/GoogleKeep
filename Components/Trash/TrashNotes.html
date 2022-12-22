@@ -121,9 +121,9 @@
 
     <div class="BookClass TrashNotesClass" id="TrashNotes" ng-controller="DashboardCtrl" ng-init="getAllTheNotes()">
         <div class="part-takeNotetwo2" ng-repeat="item in AllNotesArray" ng-if="item.isTrash==true">
-            <div class="note takeNotUp">
+            <div class="note takeNotUp" ng-click="openModal(item.noteID,item.title,item.note,item.color,item.isArchive,item.isPin,item.isTrash)">
                 <h5>{{item.title}}</h5>
-                <img src='../../Images/IsPinIcon.png' width='20' ng-click="ToPin(item.isPin)" />
+                <img src='../../Images/IsPinIcon.png' width='13' height='13' ng-click="ToPin(item.noteID)" />
             </div>
             <div class="NotesField">
                 {{item.note}}
@@ -139,8 +139,8 @@
                         <path
                             d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
                     </svg> -->
-                    <img src='../../Images/ArchiveIcon.png' width='25' ng-click="ToArchive(item.isArchive)" />
-                    <img src='../../Images/Delete.png' width='20' height='20' />
+                    <img src='../../Images/ArchiveIcon.png' width='25' ng-click="ToArchive(item.noteID)" />
+                    <img src='../../Images/Delete.png' width='20' height='20' ng-click="deleteNote(item.noteID)" />
                 </div>
             </div>
         </div>
