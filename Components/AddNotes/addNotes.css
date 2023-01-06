@@ -7,6 +7,7 @@
     box-shadow: 1px 1px 1px 1px rgb(192, 192, 192);
     border: 2px solid rgb(244, 243, 243);
     padding: 1rem;
+    /* min-width: 18rem; */
 }
 
 .BookClass {
@@ -16,7 +17,20 @@
     margin: 1rem;
     padding: 1rem;
     gap:1rem;
+    
 }
 .NotesField{
     height:6rem;
+}
+
+/* .lastDiv{
+    display:none;
+} */
+
+/* .lastDiv{
+    display:block;
+} */
+
+.MainParent{
+    position:relative;
 }

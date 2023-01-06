@@ -1,64 +1,159 @@
 <html>
-    <head>
 
-    </head>
-    <body>
-        <div>
-            <div class='BookClass' ng-controller="DashboardCtrl" ng-init="getAllTheNotes()">
-                <div class="part-takeNotetwo2" ng-repeat="item in AllNotesArray" ng-if="item.isPin==true">
-                    <div class="note takeNotUp">
-                        <h5>{{item.title}}</h5>
-                        <img src='../../Images/PinIcon.png' width='13' height='13' ng-click="ToPin(item.noteID)" />
-                    </div>
-                    <div class="NotesField">
-                        {{item.note}}
-                    </div>
-                    <div class="lastDiv">
-                        <div class="allIcons">
-                            <img src='../../Images/RemainderIcon.png' width='14' height='20' />
+<head></head>
+
+<body>
+    <div class="MainParent">
+        <div class='BookClass' ng-controller="DashboardCtrl as note" ng-init="getAllTheNotes()">
+            <div class="part-takeNotetwo2" ng-repeat="item in AllNotesArray" ng-if="item.isPin==true"
+                style="background-color: {{item.color}};">
+                <div class="note takeNotUp">
+                    <h5>{{item.title}}</h5>
+                    <img src='../../Images/PinIcon.png' width='13' height='13' ng-click="ToPin(item.noteID)" />
+                </div>
+                <div class="NotesField">
+                    {{item.note}}
+                </div>
+                <div class="lastDiv">
+                    <div class="allIcons">
+                        <img src='../../Images/RemainderIcon2.png' width='14' height='20' />
+                        <div ng-click="collabPopup(item.noteID)">
                             <img src='../../Images/PersonPlusIcon.png' width='18' height='18' />
-                            <img src='../../Images/PaintIcon.png' width='20' />
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-image" viewBox="0 0 16 16">
-                                <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                                <path
-                                    d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
-                            </svg>
-                            <img src='../../Images/ArchiveIcon.png' width='25' ng-click="ToArchive(item.noteID)" />
-                            <img src='../../Images/Delete.png' width='20' height='20' ng-click="ToTrash(item.noteID)" />
                         </div>
+                        <div class="collab" ng-show="collabView.includes(1)">
+                            <p class="collabTitle">Collaborators</p>
+                            <div style="display: flex;align-items: center;gap: 2rem;">
+                                <img class="collabImg" src="../../Images/PersonPlusIcon.png" width="30px" ,
+                                    height="30px" />
+                                <input class="collabEmail" ng-model="collabEmail" type="text"
+                                    placeholder="Email to share with" />
+                            </div>
+                            <button class="collabSave" ng-click="setCollab(collabEmail)">Save</button>
+                        </div>
+                        <!-- <img src='../../Images/PaintIcon.png' width='20' /> -->
+                        <div class="paintPallet">
+                            <img src="../../Images/PaintIcon.png" width="20px" , height="20px"
+                                ng-click="colorPopup()" />
+                            <div class="colorPopper" ng-show="colorPop.includes(1)">
+                                <div class="colorCode" ng-click="changeColor(item.noteID, color)"
+                                    ng-repeat="color in colorArray" style="background-color:{{color}} ;">
+                                </div>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-image" viewBox="0 0 16 16">
+                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            <path
+                                d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                        </svg>
+                        <img src='../../Images/ArchiveIcon.png' width='25' ng-click="ToArchive(item.noteID)" />
+                        <img src='../../Images/DeleteIcon.png' width='20' height='20' ng-click="ToTrash(item.noteID)" />
                     </div>
                 </div>
-        
             </div>
-            <div class='BookClass' ng-controller="DashboardCtrl" ng-init="getAllTheNotes()">
-        
-                <div class="part-takeNotetwo2" ng-repeat="item in AllNotesArray"
-                    ng-if="item.isPin==false&&item.isTrash==false&&item.isArchive==false">
-                    <div class="note takeNotUp" ng-click="openModal(item.noteID,item.title,item.note,item.color,item.isArchive,item.isPin,item.isTrash)">
-                        <h5>{{item.title}}</h5>
-                        <img src='../../Images/IsPinIcon.png' width='13' height='13' ng-click="ToPin(item.noteID)" />
-                    </div>
-                    <div class="NotesField">
-                        {{item.note}}
-                    </div>
-                    <div class="lastDiv">
-                        <div class="allIcons">
-                            <!-- <img src='../../Images/RemainderIcon.png' width='17' height='17' /> -->
+
+        </div>
+
+        <div class='BookClass' ng-controller="DashboardCtrl as note" ng-init="getAllTheNotes()">
+            <div class="part-takeNotetwo2" ng-repeat="note in collabData" style="background-color: {{item.color}};">
+                <div class="note takeNotUp">
+                    <h5>{{item.title}}</h5>
+                    <img src='../../Images/PinIcon.png' width='13' height='13' ng-click="ToPin(item.noteID)" />
+                </div>
+                <div class="NotesField">
+                    {{item.note}}
+                </div>
+                <div class="lastDiv">
+                    <div class="allIcons">
+                        <img src='../../Images/RemainderIcon2.png' width='14' height='20' />
+                        <div ng-click="collabPopup(item.noteID)">
                             <img src='../../Images/PersonPlusIcon.png' width='18' height='18' />
-                            <img src='../../Images/PaintIcon.png' width='20' />
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-image" viewBox="0 0 16 16">
-                                <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                                <path
-                                    d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
-                            </svg>
-                            <img src='../../Images/ArchiveIcon.png' width='25' ng-click="ToArchive(item.noteID)" />
-                            <img src='../../Images/Delete.png' width='20' height='20' ng-click="ToTrash(item.noteID)" />
                         </div>
+                        <div class="paintPallet">
+                            <img src="../../Images/PaintIcon.png" width="20px" , height="20px"
+                                ng-click="colorPopup()" />
+                            <div class="colorPopper" ng-show="colorPop.includes(1)">
+                                <div class="colorCode" ng-click="changeColor(item.noteID, color)"
+                                    ng-repeat="color in colorArray" style="background-color:{{color}} ;">
+                                </div>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-image" viewBox="0 0 16 16">
+                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            <path
+                                d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                        </svg>
+                        <img src='../../Images/ArchiveIcon.png' width='25' ng-click="ToArchive(item.noteID)" />
+                        <img src='../../Images/DeleteIcon.png' width='20' height='20' ng-click="ToTrash(item.noteID)" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class='BookClass' ng-controller="DashboardCtrl as note" ng-init="getAllTheNotes()">
+
+            <div class="part-takeNotetwo2 notetnh" id="notetnh" ng-repeat="item in AllNotesArray"
+                ng-if="item.isPin==false&&item.isTrash==false&&item.isArchive==false"
+                style="background-color: {{item.color}};">
+                <div class="note takeNotUp"
+                    ng-click="openModal(item.noteID,item.title,item.note,item.color,item.isArchive,item.isPin,item.isTrash)">
+                    <h5>{{item.title}}</h5>
+                    <img src='../../Images/IsPinIcon.png' width='13' height='13' ng-click="ToPin(item.noteID)" />
+                </div>
+                <div class="NotesField">
+                    {{item.note}}
+                </div>
+                <div class="lastDiv">
+                    <div class="allIcons">
+                        <!-- <img src='../../Images/RemainderIcon.png' width='17' height='17' /> -->
+                        <div ng-click="collabPopup(item.noteID)">
+                            <img src='../../Images/PersonPlusIcon.png' width='18' height='18'
+                                ng-click="collaboratorPopup(item.noteID)" />
+                            <div class="collab" ng-show="Collborator.includes(1)">
+                                <p class="collabTitle">Collaborators</p>
+                                <div style="display: flex;align-items: center;gap: 2rem;">
+                                    <img class="collabImg" src="../../Images/PersonPlusIcon.png" width="30px" ,
+                                        height="30px" />
+                                    <input class="collabEmail" ng-model="collabEmail" type="text"
+                                        placeholder="Email to share with" />
+                                </div>
+                                <!-- <button class="collabSave" ng-click="setCollab(collabEmail)">Save</button> -->
+                                <div class="collabSave" ng-click="setCollab(collabEmail)">save</div>
+                            </div>
+                        </div>
+                        <!-- <img src='../../Images/PaintIcon.png' width='20' /> -->
+                        <div class="paintPallet">
+                            <img src="../../Images/PaintIcon.png" width="20px" , height="20px"
+                                ng-click="colorPopup()" />
+                            <div class="colorPopper" ng-show="colorPop.includes(1)">
+                                <div class="colorCode" ng-click="changeColor(item.noteID, color)"
+                                    ng-repeat="color in colorArray" style="background-color:{{color}} ;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-image" viewBox="0 0 16 16">
+                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            <path
+                                d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                        </svg>
+                        <img src='../../Images/ArchiveIcon.png' width='25' ng-click="ToArchive(item.noteID)" />
+                        <img src='../../Images/Delete.png' width='20' height='20' ng-click="ToTrash(item.noteID)" />
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+        <div class="collab" ng-show="collabView.includes(1)">
+            <p class="collabTitle">Collaborators</p>
+            <div style="display: flex;align-items: center;gap: 2rem;">
+                <img class="collabImg" src="../../Images/PersonPlusIcon.png" width="30px" , height="30px" />
+                <input class="collabEmail" ng-model="collabEmail" type="text" placeholder="Email to share with" />
+            </div>
+            <button class="collabSave" ng-click="setCollab(collabEmail)">Save</button>
+        </div>
+    </div>
+</body>
+
 </html>
