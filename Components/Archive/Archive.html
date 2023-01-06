@@ -126,8 +126,19 @@
             <div class="lastDiv">
                 <div class="allIcons">
                     <img src='../../Images/RemainderIcon.png' width='14' height='20' />
-                    <img src='../../Images/PersonPlusIcon.png' width='18' height='18' />
-                    <img src='../../Images/PaintIcon.png' width='20' />
+                    <div  ng-click="openCollabModal(item.noteID)">
+                        <img src='../../Images/PersonPlusIcon.png' width='18' height='18'/>
+                    </div>
+                    <img src='../../Images/PaintIcon.png'  width='20' />
+                    <!-- <div class="paintPallet">
+                        <img src="../../Images/PaintIcon.png" width="20px" , height="20px"
+                            ng-click="colorPopup()" />
+                        <div class="colorPopper" ng-show="colorPop.includes(1)">
+                            <div class="colorCode" ng-click="changeColor(item.noteID, color)"
+                                ng-repeat="color in colorArray" style="background-color:{{color}} ;">
+                            </div>
+                        </div>
+                    </div> -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-image" viewBox="0 0 16 16">
                         <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />

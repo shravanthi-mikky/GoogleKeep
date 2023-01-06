@@ -118,6 +118,8 @@
     box-shadow: 5rem rgb(20, 16, 16);
     font-family: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
     font-size:xx-small;
+    /* justify-content: center; */
+    /* align-items: center; */
  }
 
  .navTwo p {
@@ -203,6 +205,7 @@ border:none;
 .TakeNoteAndNote3{
   display:flex;
   flex-direction: column;
+  margin-top:2rem;
 }
 
 .modal-body{
@@ -211,4 +214,83 @@ border:none;
 
 .model-content{
   width:15rem;
+}
+
+.notetnh:hover .colorPopper {
+  visibility: visible;
+}
+
+.colorPopper:hover {
+  visibility: visible;
+}
+
+.paintPallet {
+  position: relative;
+}
+
+.colorPopper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30vw;
+  border: 1px solid rgb(221, 219, 219);
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  visibility: hidden;
+  position: absolute;
+}
+
+.colorCode {
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  margin: 5px;
+}
+
+.collab{
+  width: 50vw;
+  height: 35vh;
+  position: absolute;
+  background: rgba(255, 255, 255, 1);
+  right: 20%;
+  bottom: 10%;
+  border: 1px solid rgb(221, 219, 219);
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px; 
+  visibility: visible;
+}
+.collabTitle{
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 1000;
+  font-size: larger;
+  margin: 0;
+}
+.collabEmail{
+  border: none;
+  width: 90%;
+  height: 7vh;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 1000;
+  font-size: medium;
+}
+.collabImg{
+  border: 1px solid rgb(146, 146, 146);
+  border-radius: 50px;
+  padding: 10px;
+  opacity: 0.7;
+}
+.collabSave{
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 1000;
+  font-size: large;
+  height: 7vh;
+  background-color: rgb(249, 246, 242);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3);
 }
