@@ -27,6 +27,8 @@ app.component('noteList', {
   $scope.collabView = [0];
   $scope.collabNote = 0;
   $scope.collabData = [];
+  $scope.labelView = [0];
+  /* $scope.getAllLabels = []; */
 
   var token = $window.localStorage.getItem("token");
   let headersConfig = {
@@ -34,6 +36,8 @@ app.component('noteList', {
       Authorization: "Bearer " + localStorage.getItem("token")
     }
   }
+
+  //More - List
 
   $scope.pop = [0];
   $scope.popper = function (noteID) {
@@ -100,6 +104,17 @@ app.component('noteList', {
       }, (error) => {
         console.log(error)
       })
+
+      $http.get("https://localhost:44340/api/Label/GetAll", headersConfig)
+        .then( function(response){
+          /* var getAllLabels =[]; */
+            console.log("All The labels.")
+            console.log(response.data);
+            $scope.getAllLabels = response.data;
+            console.log($scope.getAllLabels);
+        }, function(error){
+            console.log(error)
+        })
 
     //collab
     $http.get("https://localhost:44340/Get", headersConfig)
@@ -268,6 +283,38 @@ app.component('noteList', {
           console.log(error)
         })
     };
+
+    //label
+
+    $scope.refreshWindow = function (){
+      window.location.reload();
+  }
+  $scope.addLabel = function (noteID) {
+      $scope.labelNote = noteID
+      if ($scope.labelView.includes(0)) {
+          $scope.labelView = [1];
+      }
+      else {
+          $scope.labelView = [0]
+      }
+  }
+  $scope.setLabel = function (name){
+      $http.post(`https://localhost:44340/api/Label/Add?noteid=${$scope.labelNote}&labelss=${name}`, null, headersConfig)
+      .then(function (response)
+      {
+        console.log(response.data)
+          if (response.data)
+          {
+            console.log("label res"+response.data);
+            $scope.labelView = [0];
+            $scope.pop = [0];
+           /*  $scope.refreshWindow(); */
+          }
+          
+      }, function (error){
+          console.log(error)
+      })
+  }
 
     //collab
 

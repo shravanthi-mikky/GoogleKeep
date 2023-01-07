@@ -46,9 +46,9 @@
     align-items: center;
     width:50vw;
     height:90%;
-    /* border:1px solid red; */
     border-radius:8px;
     box-shadow: 1px 1px 1px 1px rgb(233, 232, 232);
+    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3);
     background-color: rgb(243, 242, 242);
 }
 .part-two>input{
@@ -124,16 +124,28 @@
 
  .navTwo p {
     transition: 0.3s;
-    padding: 6.5px;
+    /* padding: 6.5px; */
     text-decoration: none;
     font-size: 20px;
     color: rgb(18, 18, 18);
     border-radius: 0 30px 30px 0;
     color:white;
+    font-weight: 600!important;
+  }
+  .navTwo{
+    /* display:none; */
+    font-weight: 600!important;
+    font-size:14px;
+  }
+
+  a{
+    text-decoration: none!important;
   }
 
   .navTwo:hover{
     color:black;
+    display:block;
+
   }
 
   .navTwo p:hover{
@@ -148,7 +160,14 @@
 border:none;
 }
   .sidenavdiv{
-    background-color:rgb(253, 212, 169);
+    /* background-color:rgb(253, 212, 169); */
+    display:flex;
+    flex-direction: row;
+    color:black;
+    justify-content:space-around;
+    align-items: center;
+    text-decoration: none;
+    gap: 2.5rem;
   }
 
   .takeNotUp{
@@ -164,6 +183,7 @@ border:none;
     display:flex;
     flex-direction: row;
     width:15rem;
+    height:3rem;
     justify-content: space-between;
   }
   
@@ -248,11 +268,11 @@ border:none;
 }
 
 .collab{
-  width: 50vw;
-  height: 35vh;
+  width: 30vw;
+  height: 30vh;
   position: absolute;
   background: rgba(255, 255, 255, 1);
-  right: 20%;
+  right: 35%;
   bottom: 10%;
   border: 1px solid rgb(221, 219, 219);
   box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3);

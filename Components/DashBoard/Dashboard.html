@@ -23,32 +23,31 @@
     </div>
   </div>
 
-  <div class="SideNavPart" ng-controller="DashboardCtrl as notes">
+  <div class="SideNavPart" ng-controller="DashboardCtrl as note" ng-init="getAllTheNotes()">
     <div id="mySidenav" class="sidenav">
       <div class="navOne">
         <a href="#!Notes" class="sidenavdiv" id="Notes">
           <img src='../../Images/NotesIcon.png.crdownload' width='15' />
+          <p class="navTwo" >Notes</p>
         </a>
-        <a href="#" class="sidenavdiv" id="Remainder">
-          <img src='../../Images/RemainderIcon2.png' width='25' />
+        <a class="sidenavdiv" ng-repeat="label in getAllLabels">
+          <img src='../../Images/label.png' width="21px" , height="25px" />
+          <p class="navTwo">{{label.labelName}}</p>
         </a>
         <a href="#" class="sidenavdiv" id="Label">
           <img src='../../Images/EditLabelsIcon.png' width='15' />
+          <p class="navTwo">Label</p>
         </a>
         <a href="#!Archive" class="sidenavdiv" id="Archive">
           <img src='../../Images/ArchiveIcon.png' width='20' />
+          <p class="navTwo">Archive</p>
         </a>
         <a href="#!Trash" class="sidenavdiv" id="Trash">
           <img src='../../Images/DeleteIcon.png' width='20' />
+          <p class="navTwo">Trash</p>
         </a>
       </div>
-      <div class="navTwo">
-        <p>Notes</p>
-        <p>Remainder</p>
-        <p>Label</p>
-        <p>Archive</p>
-        <p>Trash</p>
-      </div>
+     
     </div>
 
     <div class='TakeNoteAndNote3' ng-controller="DashboardCtrl as notes">
@@ -87,7 +86,7 @@
               <img src='../../Images/RemainderIcon.png' width='14' height='20' />
               <img src='../../Images/PersonPlusIcon.png' width='18' height='18' />
               <img src='../../Images/PaintIcon.png' width='20' />
-              
+
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image"
                 viewBox="0 0 16 16">
                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
